@@ -12,7 +12,7 @@ var transporter = nodemailer.createTransport({
 var mailOptions = {
   from: process.env.MY_EMAIL,
   to: 'LoremIpsum@gmail.com',
-  subject: 'Ezt kóddal küldtem ám :D!!!',
+  subject: 'Subject',
   html: '<h1 style="color: red;">Hi!</h1><br><p>Hello World!</p>'
 };
 
