@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,10 @@
   "devDependencies": {},
   "dependencies": {
     "dotenv": "^6.2.0",
-    "nodemailer": "^5.1.1"
+    "express": "^4.16.4",
+    "next": "^8.0.1",
+    "nodemailer": "^5.1.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
   }
 }
