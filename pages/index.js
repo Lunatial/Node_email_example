@@ -25,7 +25,13 @@ class LoginForm extends React.Component {
         body: JSON.stringify(this.state)
       });
 
-      this.setState({ isLoading: false });
+      this.setState({
+        email: "",
+        subject: "",
+        textarea: "",
+        error: "",
+        isLoading: false
+      });
     } catch (err) {
       this.showError(err);
     }
@@ -41,37 +47,56 @@ class LoginForm extends React.Component {
     const { email, subject, textarea, error, isLoading } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            value={email}
-            onChange={this.handleChange}
-          />
+      <div className="container">
+        <div className="col-12">
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="email">Email address</label>
+              <input
+                className="form-control"
+                type="email"
+                name="email"
+                value={email}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="subject">Subject</label>
+              <input
+                className="form-control"
+                type="text"
+                name="subject"
+                value={subject}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="textarea">Body</label>
+              <textarea
+                className="form-control"
+                name="textarea"
+                rows="3"
+                value={textarea}
+                onChange={this.handleChange}
+              />
+            </div>
+            {isLoading ? (
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            ) : (
+              <button
+                className="btn btn-primary"
+                disabled={isLoading}
+                type="submit"
+              >
+                Submit
+              </button>
+            )}
+            {error && <div>{error}</div>}
+          </form>
         </div>
-        <div>
-          <input
-            type="text"
-            name="subject"
-            placeholder="subject"
-            value={subject}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <textarea
-            name="textarea"
-            value={textarea}
-            onChange={this.handleChange}
-          />
-        </div>
-        <button disabled={isLoading} type="submit">
-          {isLoading ? "Sending" : "Submit"}
-        </button>
-        {error && <div>{error}</div>}
-      </form>
+      </div>
     );
   }
 }
