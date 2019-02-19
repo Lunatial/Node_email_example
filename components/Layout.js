@@ -30,8 +30,8 @@ const Layout = ({ children, title }) => (
       <Link href="/about">
         <a>About</a>
       </Link>
-      <Link href="/asd">
-        <a>Asd</a>
+      <Link href="/mouse">
+        <a>Mouse</a>
       </Link>
       <Link href="/blog">
         <a>Blog</a>
