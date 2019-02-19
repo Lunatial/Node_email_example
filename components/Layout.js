@@ -11,12 +11,17 @@ Router.onRouteChangeStart = url => {
 Router.onRouteChangeComplete = () => NProggress.done();
 Router.onRouteChangeCompleteError = () => NProggress.done();
 
-export default ({ children, title }) => (
+const Layout = ({ children, title }) => (
   <div className="root">
     <Head>
       <title>Nodemail</title>
-      <meta name="theme-color" content="#ffffff"/>
-      <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
+      <meta name="theme-color" content="#ffffff" />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/static/favicon-32x32.png"
+      />
     </Head>
     <header>
       <Link href="/">
@@ -51,7 +56,12 @@ export default ({ children, title }) => (
         padding: 1em 0;
         font-size: 1.2rem;
         background-color: #1fc8db;
-        background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #007bff 75%);
+        background-image: linear-gradient(
+          141deg,
+          #9fb8ad 0%,
+          #1fc8db 51%,
+          #007bff 75%
+        );
       }
       header a {
         color: black;
@@ -65,6 +75,11 @@ export default ({ children, title }) => (
       }
       footer {
         padding: 1em;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
       }
     `}</style>
     <style global jsx>{`
@@ -76,3 +91,5 @@ export default ({ children, title }) => (
     `}</style>
   </div>
 );
+
+export default Layout;

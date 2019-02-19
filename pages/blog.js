@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import Link from "next/link";
 
 const PostLink = ({ slug, title }) => (
-  <li>
+  <li >
     <Link as={`/${slug}`} href={`/post?title=${title}`}>
       <a>{title}</a>
     </Link>
@@ -16,5 +16,10 @@ export default () => (
       <PostLink slug="angular-post" title="Angular Post" />
       <PostLink slug="vue-post" title="Vue Post" />
     </ul>
+    <style jsx>{`
+      ul {
+        margin: 2rem;
+      }
+    `}</style>
   </Layout>
 );
