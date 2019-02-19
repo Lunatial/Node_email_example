@@ -1,3 +1,7 @@
+import fetch from "isomorphic-unfetch";
+
+import Layout from "../components/Layout";
+
 class LoginForm extends React.Component {
   state = {
     email: "",
@@ -47,56 +51,66 @@ class LoginForm extends React.Component {
     const { email, subject, textarea, error, isLoading } = this.state;
 
     return (
-      <div className="container">
-        <div className="col-12">
-          <form onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="email">Email address</label>
-              <input
-                className="form-control"
-                type="email"
-                name="email"
-                value={email}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="subject">Subject</label>
-              <input
-                className="form-control"
-                type="text"
-                name="subject"
-                value={subject}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="textarea">Body</label>
-              <textarea
-                className="form-control"
-                name="textarea"
-                rows="3"
-                value={textarea}
-                onChange={this.handleChange}
-              />
-            </div>
-            {isLoading ? (
-              <div className="spinner-border" role="status">
-                <span className="sr-only">Loading...</span>
+      <Layout title="Email form">
+        <div className="container">
+          <div className="col-12">
+            <form onSubmit={this.handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="email">Email address</label>
+                <input
+                  className="form-control"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={this.handleChange}
+                />
               </div>
-            ) : (
-              <button
-                className="btn btn-primary"
-                disabled={isLoading}
-                type="submit"
-              >
-                Submit
-              </button>
-            )}
-            {error && <div>{error}</div>}
-          </form>
+              <div className="form-group">
+                <label htmlFor="subject">Subject</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="subject"
+                  value={subject}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="textarea">Body</label>
+                <textarea
+                  className="form-control"
+                  name="textarea"
+                  rows="3"
+                  value={textarea}
+                  onChange={this.handleChange}
+                />
+              </div>
+              {isLoading ? (
+                <div className="spinner-border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+              ) : (
+                <button
+                  className="btn btn-primary"
+                  disabled={isLoading}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              )}
+              {error && <div>{error}</div>}
+            </form>
+          </div>
+          <style jsx>{`
+            form {
+              margin: 2rem;
+              padding: 1rem;
+              border: 2px solid lightgrey;
+              border-radius: 5px;
+            }
+          `}</style>
         </div>
-      </div>
+      </Layout>
     );
   }
 }
