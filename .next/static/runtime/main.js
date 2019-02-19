@@ -7280,7 +7280,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      source_map_support_1.rewriteStacktrace(error, "D:\\Work\\node_email\\.next");
+      source_map_support_1.rewriteStacktrace(error, "C:\\work\\Node_email_example\\.next");
       return error;
     }
   };
@@ -8384,7 +8384,7 @@ function () {
 
                       case 2:
                         return _context3.abrupt("return", new _promise.default(function (resolve) {
-                          ws = new WebSocket("".concat(wsProtocol, "://").concat(hostname, ":").concat(60706).concat("/"));
+                          ws = new WebSocket("".concat(wsProtocol, "://").concat(hostname, ":").concat(61228).concat("/"));
 
                           ws.onopen = function () {
                             return resolve();
@@ -18260,7 +18260,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Work\node_email\node_modules\next\dist\client\next-dev */"./node_modules/next/dist/client/next-dev.js");
+module.exports = __webpack_require__(/*! C:\work\Node_email_example\node_modules\next\dist\client\next-dev */"./node_modules/next/dist/client/next-dev.js");
 
 
 /***/ }),

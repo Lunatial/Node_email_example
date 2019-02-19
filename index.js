@@ -17,8 +17,6 @@ server.use(bodyParser.json());
 
 app.prepare().then(() => {
   server.post("/", (req, res) => {
-    // console.log(req.body);
-
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -31,14 +29,20 @@ app.prepare().then(() => {
       from: process.env.MY_EMAIL,
       to: `${req.body.email}`,
       subject: `${req.body.subject}`,
-      html: `<p>${req.body.textarea}</p>`
+      html: `
+        <p>${req.body.textarea}</p>
+      `
     };
 
     transporter.sendMail(mailOptions, function(error, info) {
       if (error) {
         console.log(error);
+        res.status(500);
+        res.json({ Error: error.message });
       } else {
         console.log("Email sent: " + info.response);
+        res.status(200);
+        res.json({ Success: true });
       }
     });
   });
