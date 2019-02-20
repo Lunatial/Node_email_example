@@ -15,7 +15,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 server.use(bodyParser.json());
 
-app.prepare().then(() => {
+server.prepare().then(() => {
   server.post("/", (req, res) => {
     var transporter = nodemailer.createTransport({
       service: "gmail",
