@@ -2,17 +2,30 @@ import fetch from "isomorphic-unfetch";
 
 import Layout from "../components/Layout";
 
+import dynamic from "next/dynamic";
+
+const DynamicReactQuillWithNoSSR = dynamic(
+  () => import("../components/ReactQuill"),
+  {
+    ssr: false
+  }
+);
+
 class LoginForm extends React.Component {
   state = {
     email: "",
     subject: "",
-    textarea: "",
+    texteditor: "",
     error: "",
     isLoading: false
   };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  onHandleChange = e => {
+    this.setState({ texteditor: e });
   };
 
   handleSubmit = async event => {
@@ -32,7 +45,7 @@ class LoginForm extends React.Component {
       this.setState({
         email: "",
         subject: "",
-        textarea: "",
+        texteditor: "",
         error: "",
         isLoading: false
       });
@@ -48,7 +61,7 @@ class LoginForm extends React.Component {
   };
 
   render() {
-    const { email, subject, textarea, error, isLoading } = this.state;
+    const { email, subject, texteditor, error, isLoading } = this.state;
 
     return (
       <Layout title="Email form">
@@ -76,14 +89,7 @@ class LoginForm extends React.Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="textarea">Body</label>
-                <textarea
-                  className="form-control"
-                  name="textarea"
-                  rows="3"
-                  value={textarea}
-                  onChange={this.handleChange}
-                />
+                <DynamicReactQuillWithNoSSR onHandleChange={this.onHandleChange} texteditor={texteditor} />
               </div>
               {isLoading ? (
                 <div className="spinner-border" role="status">

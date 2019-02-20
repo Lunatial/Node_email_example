@@ -29,9 +29,7 @@ app.prepare().then(() => {
       from: process.env.MY_EMAIL,
       to: `${req.body.email}`,
       subject: `${req.body.subject}`,
-      html: `
-        <p>${req.body.textarea}</p>
-      `
+      html: `${req.body.texteditor}`
     };
 
     transporter.sendMail(mailOptions, function(error, info) {

@@ -17,7 +17,12 @@ class MouseTracker extends React.Component {
     return (
       <Layout title="Move the mouse around!">
         <div
-          style={{ minHeight: "800px", width: "100%" }}
+          style={{
+            minHeight: "700px",
+            width: "80%",
+            border: "2px solid grey",
+            borderRadius: "1rem"
+          }}
           onMouseMove={this.handleMouseMove}
         >
           <p style={{ textAlign: "center" }}>
