@@ -7,6 +7,11 @@ import dynamic from "next/dynamic";
 const DynamicReactQuillWithNoSSR = dynamic(
   () => import("../components/ReactQuill"),
   {
+    loading: () => (
+      <div className="spinner-border" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    ),
     ssr: false
   }
 );
