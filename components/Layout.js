@@ -36,6 +36,9 @@ const Layout = ({ children, title }) => (
       <Link href="/blog">
         <a>Blog</a>
       </Link>
+      <Link href="/test">
+        <a>Test</a>
+      </Link>
     </header>
 
     <h1>{title}</h1>

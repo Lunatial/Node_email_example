@@ -89,7 +89,10 @@ class LoginForm extends React.Component {
                 />
               </div>
               <div className="form-group">
-                <DynamicReactQuillWithNoSSR onHandleChange={this.onHandleChange} texteditor={texteditor} />
+                <DynamicReactQuillWithNoSSR
+                  onHandleChange={this.onHandleChange}
+                  texteditor={texteditor}
+                />
               </div>
               {isLoading ? (
                 <div className="spinner-border" role="status">
@@ -113,6 +116,30 @@ class LoginForm extends React.Component {
               padding: 1rem;
               border: 2px solid lightgrey;
               border-radius: 5px;
+            }
+          `}</style>
+          <style global jsx>{`
+            .ql-editor {
+              background-color: white;
+            }
+            .ql-toolbar {
+              display: block;
+              background-color: #eaecec;
+              border-top-left-radius: 0.25rem;
+              border-top-right-radius: 0.25rem;
+            }
+            .ql-container {
+              border-bottom-left-radius: 0.25rem;
+              border-bottom-right-radius: 0.25rem;
+              background: #fefcfc;
+            }
+
+            .ql-editor {
+              border-bottom-left-radius: 0.25rem;
+              border-bottom-right-radius: 0.25rem;
+            }
+            .ql-editor {
+              min-height: 10em;
             }
           `}</style>
         </div>

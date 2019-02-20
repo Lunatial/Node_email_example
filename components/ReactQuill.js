@@ -35,38 +35,12 @@ const formats = [
 ];
 
 const Quill = props => (
-  <React.Fragment>
-    <ReactQuill
-      modules={modules}
-      formats={formats}
-      value={props.texteditor}
-      onChange={props.onHandleChange}
-    />
-    <style global jsx>{`
-      .ql-editor {
-        background-color: white;
-      }
-      .ql-toolbar {
-        display: block;
-        background-color: #eaecec;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
-      }
-      .ql-container {
-        border-bottom-left-radius: 0.25rem;
-        border-bottom-right-radius: 0.25rem;
-        background: #fefcfc;
-      }
-
-      .ql-editor {
-        border-bottom-left-radius: 0.25rem;
-        border-bottom-right-radius: 0.25rem;
-      }
-      .ql-editor {
-        min-height: 10em;
-      }
-    `}</style>
-  </React.Fragment>
+  <ReactQuill
+    modules={modules}
+    formats={formats}
+    value={props.texteditor}
+    onChange={props.onHandleChange}
+  />
 );
 
 export default Quill;
