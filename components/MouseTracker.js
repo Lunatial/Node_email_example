@@ -3,17 +3,20 @@ import Layout from "../components/Layout";
 class MouseTracker extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { x: 0, y: 0 };
+    this.state = { x: 0, y: 0, inSide: false };
   }
 
   handleMouseMove = event => {
+    if (this.state.x !== "0") {
+      this.setState({ inSide: true });
+    }
     const vegetaImg = document.querySelector(".mouseCont img");
     const componentText = document.querySelector(".mouseCont p");
     this.setState({
       x: event.clientX,
       y: event.clientY
     });
-    if (this.state.x *7 > 9000) {
+    if (this.state.x * 7 > 9000) {
       vegetaImg.style.display = "block";
       componentText.style.display = "none";
     } else {
@@ -22,18 +25,31 @@ class MouseTracker extends React.Component {
     }
   };
 
+  handleMouseLeave = event => {
+    const vegetaImg = document.querySelector(".mouseCont img");
+    const componentText = document.querySelector(".mouseCont p");
+    this.setState({ inSide: false });
+    vegetaImg.style.display = "none";
+    componentText.style.display = "block";
+  };
+
   render() {
+    const { x, y, inSide } = this.state;
     return (
       <Layout title="Move the mouse around!">
-        <div className="mouseCont" onMouseMove={this.handleMouseMove}>
-          <img
-            src="/static/itover9000.png"
-            alt="Vegeta"
-            height="100%"
-          />
-          <p style={{ textAlign: "center" }}>
-            The current mouse position is ({this.state.x * 7}, {this.state.y})
-          </p>
+        <div
+          className="mouseCont"
+          onMouseMove={this.handleMouseMove}
+          onMouseLeave={this.handleMouseLeave}
+        >
+          <img src="/static/itover9000.png" alt="Vegeta" height="100%" />
+          {inSide ? (
+            <p style={{ textAlign: "center" }}>
+              The current mouse position is ({x * 7}, {y})
+            </p>
+          ) : (
+            <p>Try in the area</p>
+          )}
         </div>
         <style global jsx>{`
           .mouseCont {
