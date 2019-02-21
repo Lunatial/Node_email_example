@@ -42,7 +42,7 @@ class MouseTracker extends React.Component {
           onMouseMove={this.handleMouseMove}
           onMouseLeave={this.handleMouseLeave}
         >
-          <img src="/static/itover9000.png" alt="Vegeta" height="100%" />
+          <img src="/static/itover9000.png" alt="Vegeta" height="600px" />
           {inSide ? (
             <p style={{ textAlign: "center" }}>
               The current mouse position is ({x * 7}, {y})
@@ -56,7 +56,7 @@ class MouseTracker extends React.Component {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 700px;
+            min-height: 600px;
             width: 80%;
             border: 2px solid grey;
             border-radius: 1rem;
