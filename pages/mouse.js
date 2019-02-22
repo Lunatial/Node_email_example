@@ -6,7 +6,7 @@ const DynamicComponentWithNoSSR = dynamic(
   {
     loading: () => (
       <Layout title="Move the mouse around!">
-        <div className="spinner-container">
+        <div className="spinner-container" style={{marginTop: "calc(40vh - 67px)"}}>
           <div className="spinner-border" role="status">
             <span className="sr-only">Loading...</span>
           </div>
