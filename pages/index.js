@@ -33,6 +33,7 @@ class LoginForm extends React.Component {
 
   onHandleChange = e => {
     this.setState({ texteditor: e });
+    console.log(this.state.texteditor)
   };
 
   handleSubmit = async event => {

@@ -16,7 +16,7 @@ const links = [
   { href: "/about", key: "about", content: "About" },
   { href: "/mouse", key: "mouse", content: "Mouse" },
   { href: "/blog", key: "blog", content: "Blog" },
-  { href: "/test", key: "test", content: "Test" }
+//   { href: "/test", key: "test", content: "Test" }
 ];
 
 class Layout extends React.Component {

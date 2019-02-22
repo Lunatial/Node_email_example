@@ -1,13 +1,17 @@
 import Layout from "../components/Layout";
 import { withRouter } from "next/router";
+const randomWords = require("random-words");
 
 const Post = ({ router }) => (
   <Layout title={router.query.title}>
-    <p style={{ width: "80vw" }}>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias,
-      eaque! Ad explicabo eum cumque, voluptate quaerat perferendis eligendi
-      eveniet sint dolorem in odit sed mollitia, eos rerum, quod saepe atque!
-    </p>
+    <div style={{ width: "80vw", marginTop: "2rem" }}>
+      <p>
+        {router.query.title.split(" ")[0]}{" "}
+        {randomWords({ min: 63, max: 140, join: " " })}.
+      </p>
+      <p>{randomWords({ min: 63, max: 140, join: " " })}.</p>
+      <p>{randomWords({ min: 63, max: 140, join: " " })}.</p>
+    </div>
   </Layout>
 );
 
