@@ -3,7 +3,7 @@ import fetch from "isomorphic-unfetch";
 import Error from "../pages/_error";
 import Layout from "../components/Layout";
 
-export default class About extends Component {
+class About extends Component {
   static async getInitialProps() {
     const res = await fetch("https://api.github.com/users/lunatial");
     const statusCode = res.status > 200 ? res.status : false;
@@ -26,7 +26,14 @@ export default class About extends Component {
       <Layout title="About">
         <p>{user.name}</p>
         <img src={user.avatar_url} alt="avatar" height="200px" />
+        <style jsx>{`
+          pre {
+            margin-top: 40px;
+          }
+        `}</style>
       </Layout>
     );
   }
 }
+
+export default About;

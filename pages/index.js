@@ -8,8 +8,10 @@ const DynamicReactQuillWithNoSSR = dynamic(
   () => import("../components/ReactQuill"),
   {
     loading: () => (
-      <div className="spinner-border" role="status">
-        <span className="sr-only">Loading...</span>
+      <div className="spinner-container">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
       </div>
     ),
     ssr: false
@@ -100,8 +102,10 @@ class LoginForm extends React.Component {
                 />
               </div>
               {isLoading ? (
-                <div className="spinner-border" role="status">
-                  <span className="sr-only">Loading...</span>
+                <div className="spinner-container">
+                  <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
                 </div>
               ) : (
                 <button
