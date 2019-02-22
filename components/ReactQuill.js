@@ -3,17 +3,19 @@ import "react-quill/dist/quill.snow.css";
 
 const modules = {
   toolbar: [
-    [{ header: "1" }, { header: "2" }, { font: [] }],
-    [{ size: [] }],
     ["bold", "italic", "underline", "strike", "blockquote"],
+    [{ 'align': [] }], 
+    [{ header: "1" }, { header: "2" }, { font: [] }],    
+    [{ size: [] }],   
+    [{ 'color': [] }, { 'background': [] }],
     [{ list: "ordered" }, { list: "bullet" }],
     ["link", "image", "video"],
-    ["clean"],
-    ["code-block"]
+    ["code-block"],
+    ["clean"]
   ],
   clipboard: {
     // toggle to add extra line breaks when pasting HTML:
-    matchVisual: false
+    matchVisual: true
   }
 };
 
@@ -26,6 +28,9 @@ const formats = [
   "underline",
   "strike",
   "blockquote",
+  "color",
+  "background",
+  "align",
   "list",
   "bullet",
   "link",
